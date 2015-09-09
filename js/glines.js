@@ -1,7 +1,6 @@
-var glines = {};
+window.glines = {};
 
 (function(gl, jq) {
-	
 	gl.defaultStyles = {
 		horizontal : {
 			width : '100%',
@@ -225,6 +224,7 @@ var glines = {};
 
 
 	jq(window).on('resize', function() {
+		console.log('resizing');
 		var h = gl.getWindowHeight();	
 		gl.each(function(ind, line) {
 			if (line.axis == 'vertical') {
