@@ -17,6 +17,10 @@
 	padding-top: 10px;
 }
 
+.actions li.indented {
+	padding: 7px 5px;
+}
+
 .actions li a {
 	display: block;
 	padding: 5px;
@@ -36,5 +40,20 @@
 .actions li a:hover {
 	border-color: #ECECEC;
 	box-shadow: inset 0px 2px 5px 0px rgba(0,0,0,0.1);
+}
+
+.actions li .lbl {
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.line-size {
+	width: 30px;
+}
+
+input[type="color"] {
+	padding: 0;
+	width: 48px;
 }
 
