@@ -1,4 +1,4 @@
-window.glines = {};
+glines = {};
 
 (function(gl, jq) {
 	gl.defaultStyles = {
@@ -83,9 +83,9 @@ window.glines = {};
 				resultStyle['backgroundColor'] = customStyle[ i ];
 			} else if (i == 'size') {
 				if (axis == 'vertical') {
-					resultStyle['width'] = customStyle[ i ];
+					resultStyle['width'] = customStyle[ i ] + 'px';
 				} else {
-					resultStyle['height'] = customStyle[ i ];
+					resultStyle['height'] = customStyle[ i ] + 'px';
 				}
 			} else {
 				resultStyle[ i ] = customStyle[ i ];
@@ -212,7 +212,7 @@ window.glines = {};
 	gl.help = function() {
 		console.log('type glines.addLine(\'v\'); to add vertical line');
 		console.log('type glines.addLine(\'h\'); to add horizontal line');
-		console.log('type glines.addLine(\'v\', { color:\'#f00\', size:\'1px\' }); to add red one-pixel vertical line');
+		console.log('type glines.addLine(\'v\', { color:\'#f00\', size:1 }); to add red one-pixel vertical line');
 		console.log('single click on line makes it active, so you can move it using mouse or keyboard arrows');
 		console.log('use double click on line to remove it, or type glines.removeAll(); to remove all lines');
 		console.log('visit https://github.com/eugenezadorin/glines.js to get more info');
@@ -224,7 +224,6 @@ window.glines = {};
 
 
 	jq(window).on('resize', function() {
-		console.log('resizing');
 		var h = gl.getWindowHeight();	
 		gl.each(function(ind, line) {
 			if (line.axis == 'vertical') {

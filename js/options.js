@@ -3,8 +3,8 @@ function save_options() {
 	var lineSize = document.getElementById('line-size').value;
 	chrome.storage.sync.set(
 		{
-			lineColor: lineColor,
-			lineSize: lineSize
+			color: lineColor,
+			size: lineSize
 		}, 
 		function() {
 			// Update status
@@ -21,12 +21,12 @@ function restore_options() {
 	chrome.storage.sync.get(
 		{
 			// set defaults
-			lineColor: 'black',
-			lineSize: 4
+			color: 'black',
+			size: 4
 		}, 
 		function(items) {
-			document.getElementById('line-color').value = items.lineColor;
-			document.getElementById('line-size').value = items.lineSize;
+			document.getElementById('line-color').value = items.color;
+			document.getElementById('line-size').value = items.size;
 		}
 	);
 }
