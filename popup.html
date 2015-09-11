@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>glines</title>
-		<link rel="stylesheet" type="text/css" href="css/popup.css">
+		<link rel="stylesheet" type="text/css" href="css/common.css">
 		<script type="text/javascript" src="js/popup.js"></script>
 	</head>
 	<body>
@@ -10,10 +10,10 @@
 			<li><a href="#" id="add-vertical-line">Add vertical line</a></li>
 			<li><a href="#" id="add-horizontal-line">Add horizontal line</a></li>
 			<li class="bordered"><a href="#" id="remove-all-lines">Remove all lines</a></li>
-			<li class="bordered indented">
-				<span class="lbl">Settings</span>
+			<li class="bordered indented options">
+				<span class="lbl" id="settings-lbl">Settings</span>
 				<input type="text" value="" id="line-size" class="line-size">&nbsp;px
-				<input type="color" value="red" id="line-color" class="line-color" list>
+				<input type="color" value="#000000" id="line-color" class="line-color" list>
 			</li>
 		</ul>
 	</body>

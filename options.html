@@ -2,22 +2,14 @@
 <html>
 	<head>
 		<title>glines options</title>
-		<link rel="stylesheet" type="text/css" href="css/options.css">
+		<link rel="stylesheet" type="text/css" href="css/common.css">
 	</head>
-	<body>
+	<body class="options-page">
 		<div class="opt-group">
-			<label for="line-size">Line size (px):</label>
-			<input type="text" id="line-size" value="">
+			<label for="line-size">Line&nbsp;size:&nbsp;</label><input type="text" id="line-size" class="line-size" value="">&nbsp;px
 		</div>
 		<div class="opt-group">
-			<label for="line-color">Line color:</label>
-			<select id="line-color">
-				<option value="black">black</option>
-				<option value="white">white</option>
-				<option value="red">red</option>
-				<option value="green">green</option>
-				<option value="blue">blue</option>
-			</select>
+			<label for="line-color">Line&nbsp;color:&nbsp;</label><input type="color" value="#000000" id="line-color" class="line-color" list>
 		</div>
 		<button id="save">Save</button><span id="status" class="status"></span>
 		<script src="js/options.js"></script>
