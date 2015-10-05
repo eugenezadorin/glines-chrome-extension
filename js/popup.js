@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
 			}, 
 			function() {
 				var lbl = document.getElementById('settings-lbl');
-				lbl.textContent = 'Settings — saved.';
+				lbl.textContent = 'Settings saved.';
 				setTimeout(function() {
 					lbl.textContent = 'Settings';
 				}, 750);

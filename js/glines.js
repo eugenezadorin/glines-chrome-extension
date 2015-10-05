@@ -1,6 +1,6 @@
 glines = {};
 
-(function(gl, jq) {
+(function(gl) {
 	gl.defaultStyles = {
 		horizontal : {
 			width : '100%',
@@ -136,19 +136,22 @@ glines = {};
 
 		line.onmousedown = function(event) {
 			var self = this;
+			var dragX = function(e) {
+				self.style.left = e.pageX + 'px';
+			}
+			var dragY = function(e) {
+				self.style.top = e.pageY + 'px';
+			}
 
 			if (self.axis == 'vertical') {
-				jq(document).on('mousemove', function(e) {
-					self.style.left = e.pageX + 'px';
-				});	
+				document.addEventListener('mousemove', dragX);	
 			} else if (self.axis == 'horizontal') {
-				jq(document).on('mousemove', function(e) {
-					self.style.top = e.pageY + 'px';
-				});
+				document.addEventListener('mousemove', dragY);
 			}
 			
 			self.onmouseup = function() {
-				jq(document).off('mousemove');
+				document.removeEventListener('mousemove', dragX);
+				document.removeEventListener('mousemove', dragY);
 				self.onmouseup = null;
 			}
 
@@ -207,23 +210,10 @@ glines = {};
 			elements_to_remove[i].remove();
 		}
 	}
-
 	
-	gl.help = function() {
-		console.log('type glines.addLine(\'v\'); to add vertical line');
-		console.log('type glines.addLine(\'h\'); to add horizontal line');
-		console.log('type glines.addLine(\'v\', { color:\'#f00\', size:1 }); to add red one-pixel vertical line');
-		console.log('single click on line makes it active, so you can move it using mouse or keyboard arrows');
-		console.log('use double click on line to remove it, or type glines.removeAll(); to remove all lines');
-		console.log('visit https://github.com/eugenezadorin/glines.js to get more info');
-	}
+	console.log('glines extension included: https://bitbucket.org/SokolicDrummer/glines-chrome-extension');
 
-	
-	console.log('glines included.');
-	console.log('type glines.help() into console to get API info');
-
-
-	jq(window).on('resize', function() {
+	window.addEventListener('resize', function() {
 		var h = gl.getWindowHeight();	
 		gl.each(function(ind, line) {
 			if (line.axis == 'vertical') {
@@ -232,4 +222,4 @@ glines = {};
 		});
 	});
 
-})(glines, jQuery);
+})(glines);
