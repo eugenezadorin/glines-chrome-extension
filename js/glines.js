@@ -66,7 +66,7 @@ glines = {};
 	gl.setLineStyle = function(line, customStyle) {
 		customStyle = customStyle || {};
 		var axis = this.checkAxis( line.axis );
-		var resultStyle = this.defaultStyles[ axis ];
+		var resultStyle = Object.create(this.defaultStyles[ axis ]);
 
 		if (axis == 'vertical') {
 			resultStyle.height = this.getWindowHeight() + 'px';
@@ -158,7 +158,7 @@ glines = {};
 				}
 			}
 
-			document.addEventListener('mousemove', dragLine);	
+			document.addEventListener('mousemove', dragLine);
 			
 			self.onmouseup = function() {
 				document.removeEventListener('mousemove', dragLine);
@@ -207,6 +207,49 @@ glines = {};
 		document.body.appendChild( line );
 		line.focus();
 		return line;
+	}
+
+
+	gl.addCrossLine = function(customStyle) {
+		customStyle.cursor = 'default';
+
+		var crossLine = {};
+		crossLine.vAxis = this.addLine('vertical', customStyle);
+		crossLine.hAxis = this.addLine('horizontal', customStyle);
+		crossLine.remove = function() {
+			this.vAxis.remove();
+			this.hAxis.remove();
+			return true;
+		}
+
+		var dragCrossLine = function(e) {
+			crossLine.vAxis.style.left = e.pageX + 'px';
+			crossLine.hAxis.style.top = e.pageY + 'px';
+		}
+
+		var rightClickCrossLine = function(e) {
+			e.preventDefault();
+			document.removeEventListener('mousemove', dragCrossLine);
+			document.removeEventListener('click', leftClickCrossLine);
+			document.removeEventListener('contextmenu', rightClickCrossLine);
+			crossLine.remove();
+			return false;
+		}
+
+		var leftClickCrossLine = function(e) {
+			document.removeEventListener('mousemove', dragCrossLine);
+			document.removeEventListener('click', leftClickCrossLine);
+			document.removeEventListener('contextmenu', rightClickCrossLine);
+			crossLine.vAxis.style.cursor = 'w-resize';
+			crossLine.hAxis.style.cursor = 's-resize';
+			return true;
+		}
+
+		document.addEventListener('mousemove', dragCrossLine);
+		document.addEventListener('contextmenu', rightClickCrossLine);
+		document.addEventListener('click', leftClickCrossLine);
+
+		return crossLine;
 	}
 
 	

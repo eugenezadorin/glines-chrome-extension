@@ -1,6 +1,7 @@
 window.addEventListener('load', function(){
 	var vLineBtn = document.getElementById('add-vertical-line'),
 		hLineBtn = document.getElementById('add-horizontal-line'),
+		crossLineBtn = document.getElementById('add-crossline'),
 		removeAllBtn = document.getElementById('remove-all-lines'),
 		lineSizeField = document.getElementById('line-size'),
 		lineColorField = document.getElementById('line-color');
@@ -60,6 +61,19 @@ window.addEventListener('load', function(){
 			},
 			function() {
 				chrome.tabs.executeScript(null, {file: 'js/addLine.js'});
+			}
+		);
+		return false;
+	});
+
+	crossLineBtn.addEventListener('click', function(){
+		chrome.tabs.executeScript(
+			null, 
+			{
+				code: ''
+			},
+			function() {
+				chrome.tabs.executeScript(null, {file: 'js/addCrossLine.js'});
 			}
 		);
 		return false;
