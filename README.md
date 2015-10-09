@@ -10,8 +10,14 @@ Simple tool for easy markup testing with guide lines.
 
 ## How to use
 
-1. Click on plugn button at Chrome panel
+1. Click on plugin button at Chrome panel
 2. Use dropdown menu to add lines
 3. Move lines using mouse or keyboard arrows
 4. Drag lines with Ctrl to clone them
 5. Delete lines by double click, or remove all using menu
+
+## Crosslines
+
+1. Use dropdown menu to add crossline
+2. Use left mouse button to fix crossline
+3. Use right mouse button to remove crossline
