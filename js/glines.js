@@ -107,6 +107,7 @@ glines = {};
 		var line = document.createElement('div');
 
 		line.glines = this;
+		line.customStyle = customStyle;
 		line.axis = axis;
 		line.index = this.counter;
 		line.className = 'glines-line';
@@ -136,23 +137,33 @@ glines = {};
 
 		line.onmousedown = function(event) {
 			var self = this;
-			var dragX = function(e) {
-				self.style.left = e.pageX + 'px';
-			}
-			var dragY = function(e) {
-				self.style.top = e.pageY + 'px';
+			var clonedLine = null;
+
+			var dragLine = function(e) {
+				if (e.ctrlKey)
+				{
+					if (!clonedLine)
+					{
+						clonedLine = self.glines.addLine(self.axis, self.customStyle);
+						clonedLine.style.left = self.style.left;
+						clonedLine.style.top = self.style.top;
+						self.focus();
+					}
+				}
+
+				if (self.axis == 'vertical') {
+					self.style.left = e.pageX + 'px';
+				} else if (self.axis == 'horizontal') {
+					self.style.top = e.pageY + 'px';
+				}
 			}
 
-			if (self.axis == 'vertical') {
-				document.addEventListener('mousemove', dragX);	
-			} else if (self.axis == 'horizontal') {
-				document.addEventListener('mousemove', dragY);
-			}
+			document.addEventListener('mousemove', dragLine);	
 			
 			self.onmouseup = function() {
-				document.removeEventListener('mousemove', dragX);
-				document.removeEventListener('mousemove', dragY);
+				document.removeEventListener('mousemove', dragLine);
 				self.onmouseup = null;
+				clonedLine = null;
 			}
 
 			return false;
@@ -195,6 +206,7 @@ glines = {};
 
 		document.body.appendChild( line );
 		line.focus();
+		return line;
 	}
 
 	

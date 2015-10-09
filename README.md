@@ -13,4 +13,5 @@ Simple tool for easy markup testing with guide lines.
 1. Click on plugn button at Chrome panel
 2. Use dropdown menu to add lines
 3. Move lines using mouse or keyboard arrows
-4. Delete lines by double click, or remove all using menu
+4. Drag lines with Ctrl to clone them
+5. Delete lines by double click, or remove all using menu
