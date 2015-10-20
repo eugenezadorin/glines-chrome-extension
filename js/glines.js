@@ -1,31 +1,6 @@
 glines = {};
 
 (function(gl) {
-	gl.defaultStyles = {
-		horizontal : {
-			width : '100%',
-			height : '4px',
-			position : 'absolute',
-			backgroundColor : '#000',
-			zIndex : '9999',
-			top : '0', 
-			left : '0',
-			cursor : 's-resize',
-			outline : 'none'
-		},
-
-		vertical : {
-			width : '4px',
-			position : 'absolute',
-			backgroundColor : '#000',
-			zIndex : '9999',
-			top : '0',
-			left : '0',
-			cursor : 'w-resize',
-			outline : 'none'
-		}
-	};
-
 	gl.counter = -1;
 		
 	gl.getWindowHeight = function() {
@@ -66,7 +41,7 @@ glines = {};
 	gl.setLineStyle = function(line, customStyle) {
 		customStyle = customStyle || {};
 		var axis = this.checkAxis( line.axis );
-		var resultStyle = Object.create(this.defaultStyles[ axis ]);
+		var resultStyle = {};
 
 		if (axis == 'vertical') {
 			resultStyle.height = this.getWindowHeight() + 'px';
@@ -110,7 +85,7 @@ glines = {};
 		line.customStyle = customStyle;
 		line.axis = axis;
 		line.index = this.counter;
-		line.className = 'glines-line';
+		line.className = 'glines-line glines-line-' + axis;
 		line.id = 'glines-line-' + this.counter;
 		line.tabIndex = '10000' + this.counter; // hack. focus method will work on div
 

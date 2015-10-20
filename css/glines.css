@@ -1,0 +1,28 @@
+.glines-line {
+	position: absolute;
+	background-color: #000;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	outline: none;
+}
+
+.glines-line-horizontal {
+	width: 100%;
+	height: 4px;
+	cursor: s-resize;
+}
+
+.glines-line-vertical {
+	width: 4px;
+	cursor: w-resize;
+}
+
+.glines-line-vertical:before {
+	content: " ";
+	display: block;
+	position: relative;
+	width: 7px;
+	height: 100%;
+	left: -3px;
+}

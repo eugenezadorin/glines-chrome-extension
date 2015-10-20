@@ -29,7 +29,8 @@
 	"content_scripts": [
 		{
 			"matches": ["http://*/*", "https://*/*"],
-			"js": ["js/glines.js"]
+			"js": ["js/glines.js"],
+			"css": ["css/glines.css"]
 		}
 	]
 }
