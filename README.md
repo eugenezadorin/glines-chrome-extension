@@ -2,6 +2,10 @@
 
 Simple tool for easy markup testing with guide lines.
 
+## Demo 
+
+![Glines demo](http://i.imgur.com/8Yt99WG.gif)
+
 ## How to install
 
 1. Download or clone this repository
