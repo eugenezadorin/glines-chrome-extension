@@ -26,3 +26,12 @@
 	height: 100%;
 	left: -3px;
 }
+
+.glines-line-horizontal:before {
+	content: " ";
+	display: block;
+	position: relative;
+	height: 7px;
+	width: 100%;
+	top: -3px;
+}

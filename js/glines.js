@@ -91,13 +91,6 @@ glines = {};
 
 		this.setLineStyle( line, customStyle );
 
-		// hack. custom remove() method for IE
-		if ( typeof line.remove == 'undefined' ) {
-			line.remove = function() {
-				this.parentNode.removeChild( this );
-			}
-		}
-
 		line.onclick = function() {
 			this.focus();
 		}
