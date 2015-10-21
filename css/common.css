@@ -101,3 +101,9 @@ body {
 	margin-left: 10px;
 	color: gray;
 }
+
+.options-page .copy {
+	margin: 20px 0;
+	color: gray;
+	line-height: 1.7;
+}

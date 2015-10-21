@@ -4,6 +4,7 @@
 	"version": "0.0.4",
 	"description": "Simple tool for easy markup testing with guide lines",
 	"author": "Eugene Zadorin",
+	"homepage_url": "https://github.com/eugenezadorin/glines-chrome-extension",
 	"icons": {
 		"16": "images/icon16.png",
 		"32": "images/icon32.png",

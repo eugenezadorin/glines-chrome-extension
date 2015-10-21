@@ -234,8 +234,6 @@ glines = {};
 		}
 	}
 	
-	console.log('glines extension included: https://bitbucket.org/SokolicDrummer/glines-chrome-extension');
-
 	window.addEventListener('resize', function() {
 		var h = gl.getWindowHeight();	
 		gl.each(function(ind, line) {
