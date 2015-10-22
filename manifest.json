@@ -33,5 +33,29 @@
 			"js": ["js/glines.js"],
 			"css": ["css/glines.css"]
 		}
-	]
+	],
+	"background": {
+		"scripts": ["js/events.js"],
+		"persistent": false
+	},
+	"commands": {
+		"add-vertical-line": {
+			"suggested_key": {
+				"default": "Alt+V"
+			},
+			"description": "Add vertical line"
+		},
+		"add-horizontal-line": {
+			"suggested_key": {
+				"default": "Alt+H"
+			},
+			"description": "Add horizontal line"
+		},
+		"add-cross-line": {
+			"suggested_key": {
+				"default": "Alt+C"
+			},
+			"description": "Add cross line"
+		}
+	}
 }
