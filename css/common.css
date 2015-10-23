@@ -8,7 +8,7 @@ body {
 
 .actions {
 	list-style: none;
-	width: 135px;
+	width: 150px;
 }
 
 .actions li {
@@ -48,6 +48,13 @@ body {
 	box-shadow: inset 0px 2px 5px 0px rgba(0,0,0,0.1);
 }
 
+.actions .hotkey {
+    color: gray;
+    font-size: 10px;
+    float: right;
+    margin-top: 2px;
+}
+
 .actions li .lbl {
 	display: block;
 	width: 100%;
@@ -55,7 +62,7 @@ body {
 }
 
 .options .line-size {
-	width: 30px;
+	width: 35px;
 	box-sizing: border-box;
 	border-radius: 0;
 	border: 1px solid #CECECE;
@@ -67,7 +74,7 @@ body {
 	border: 1px solid #CECECE;
 	font-family: 'Segoe UI', Tahoma, sans-serif;
 	width: 48px;
-	padding-right: 15px;
+	padding-right: 25px;
 	float: right;
 }
 

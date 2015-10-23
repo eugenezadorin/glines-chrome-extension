@@ -1,4 +1,19 @@
 window.addEventListener('load', function(){
+	// set shortcut tips from settings
+	chrome.commands.getAll(function(commands){
+		var commandId,
+			commandHotkey;
+
+		for (i in commands) {
+			commandHotkey = null;
+			commandId = 'command-' + commands[i].name;
+			
+			if (commandHotkey = document.getElementById(commandId)) {
+				commandHotkey.textContent = commands[i].shortcut;
+			}
+		}
+	});
+
 	var vLineBtn = document.getElementById('add-vertical-line'),
 		hLineBtn = document.getElementById('add-horizontal-line'),
 		crossLineBtn = document.getElementById('add-crossline'),
