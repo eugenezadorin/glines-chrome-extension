@@ -62,7 +62,7 @@ body {
 }
 
 .options .line-size {
-	width: 35px;
+	width: 45px;
 	box-sizing: border-box;
 	border-radius: 0;
 	border: 1px solid #CECECE;
@@ -70,11 +70,16 @@ body {
 	font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+.options .line-size::-webkit-inner-spin-button, 
+.options .line-size::-webkit-outer-spin-button {
+   opacity: 1;
+}
+
 .options .line-color {
 	border: 1px solid #CECECE;
 	font-family: 'Segoe UI', Tahoma, sans-serif;
 	width: 48px;
-	padding-right: 25px;
+	padding-right: 15px;
 	float: right;
 }
 
@@ -88,7 +93,7 @@ body {
 }
 
 .opt-group .line-size {
-	width: 32px;
+	width: 45px;
 	box-sizing: border-box;
 	border-radius: 0;
 	border: 1px solid #CECECE;
@@ -96,12 +101,17 @@ body {
 	font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+.opt-group .line-size::-webkit-inner-spin-button, 
+.opt-group .line-size::-webkit-outer-spin-button {
+   opacity: 1;
+}
+
 .opt-group .line-color {
 	border: 1px solid #CECECE;
 	font-family: 'Segoe UI', Tahoma, sans-serif;
 	width: 46px;
 	height: 22px;
-	padding-right: 0;
+	padding-right: 13px;
 }
 
 .options-page .status {
