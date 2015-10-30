@@ -21,10 +21,11 @@ function restore_options() {
 	chrome.storage.sync.get(
 		{
 			// set defaults
-			color: 'black',
-			size: 4
+			color: '#00FFFF',
+			size: 1
 		}, 
 		function(items) {
+			console.log(items);
 			document.getElementById('line-color').value = items.color;
 			document.getElementById('line-size').value = items.size;
 		}

@@ -6,6 +6,9 @@
 		<script type="text/javascript" src="js/popup.js"></script>
 	</head>
 	<body>
+		<div id="need-allow-file-access" class="alert alert--red alert--hidden">
+			You should allow access to <code>file://</code> URLs in the <a href="#" id="open-settings">extension settings</a>.
+		</div>
 		<ul class="actions">
 			<li><a href="#" id="add-vertical-line">Add vertical line <span class="hotkey" id="command-add-vertical-line">Alt+V</span></a></li>
 			<li><a href="#" id="add-horizontal-line">Add horizontal line <span class="hotkey" id="command-add-horizontal-line">Alt+H</span></a></li>
@@ -14,7 +17,7 @@
 			<li class="bordered indented options">
 				<span class="lbl" id="settings-lbl">Settings</span>
 				<input type="number" min="1" step="1" value="" id="line-size" class="line-size">&nbsp;px
-				<input type="color" value="#000000" id="line-color" class="line-color" list>
+				<input type="color" value="" id="line-color" class="line-color" list>
 			</li>
 		</ul>
 	</body>

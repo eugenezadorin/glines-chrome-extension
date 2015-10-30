@@ -1,8 +1,8 @@
 chrome.storage.sync.get(
 	{
 		// set defaults
-		color: 'black',
-		size: 4
+		color: '#00FFFF',
+		size: 1
 	}, 
 	function(options) {
 		glines.addLine(lineType, options);

@@ -20,16 +20,27 @@ chrome.commands.onCommand.addListener(function(command) {
 			break;
 	}
 
-	if (_code || _file)
-	{
-		chrome.tabs.executeScript(
-			null, 
+
+	// check access to file:/// urls
+	chrome.extension.isAllowedFileSchemeAccess(function(isAllowedAccess){
+		if (isAllowedAccess)
+		{
+			if (_code || _file)
 			{
-				code: _code
-			},
-			function() {
-				chrome.tabs.executeScript(null, {file: _file});
+				chrome.tabs.executeScript(
+					null, 
+					{
+						code: _code
+					},
+					function() {
+						chrome.tabs.executeScript(null, {file: _file});
+					}
+				);
 			}
-		);
-	}
+		}
+		else
+		{
+			alert('You should allow access to file:// URLs in the extension settings');
+		}
+	});	
 });

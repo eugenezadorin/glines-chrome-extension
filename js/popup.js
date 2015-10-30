@@ -1,4 +1,21 @@
 window.addEventListener('load', function(){
+	// check access to file:/// urls
+	chrome.extension.isAllowedFileSchemeAccess(function(isAllowedAccess){
+		if (isAllowedAccess) return;
+
+		var msg = document.getElementById('need-allow-file-access'),
+			openSettingsBtn = document.getElementById('open-settings');
+		
+		openSettingsBtn.addEventListener('click', function(){
+			chrome.tabs.create({
+				url: 'chrome://extensions/?id=' + chrome.runtime.id
+			});
+		});
+
+		msg.classList.remove('alert--hidden');
+	});
+
+
 	// set shortcut tips from settings
 	chrome.commands.getAll(function(commands){
 		var commandId,
@@ -25,8 +42,8 @@ window.addEventListener('load', function(){
 	chrome.storage.sync.get(
 		{
 			// set defaults
-			color: '#000000',
-			size: 4
+			color: '#00FFFF',
+			size: 1
 		}, 
 		function(items) {
 			lineColorField.value = items.color;

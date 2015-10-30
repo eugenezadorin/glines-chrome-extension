@@ -208,8 +208,8 @@ glines = {};
 			document.removeEventListener('mousemove', dragCrossLine);
 			document.removeEventListener('click', leftClickCrossLine);
 			document.removeEventListener('contextmenu', rightClickCrossLine);
-			crossLine.vAxis.style.cursor = 'w-resize';
-			crossLine.hAxis.style.cursor = 's-resize';
+			crossLine.vAxis.style.cursor = crossLine.vAxis.customStyle.cursor = 'w-resize';
+			crossLine.hAxis.style.cursor = crossLine.hAxis.customStyle.cursor = 's-resize';
 			return true;
 		}
 

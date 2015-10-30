@@ -6,6 +6,22 @@ body {
 	margin: 8px;
 }
 
+a, a:hover, a:visited, a:focus {
+	color: #086DEF;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+code {
+	display: inline-block;
+	background: #F5F5F5;
+	border-radius: 2px;
+	padding: 0 3px;
+}
+
 .actions {
 	list-style: none;
 	width: 150px;
@@ -103,7 +119,7 @@ body {
 
 .opt-group .line-size::-webkit-inner-spin-button, 
 .opt-group .line-size::-webkit-outer-spin-button {
-   opacity: 1;
+	opacity: 1;
 }
 
 .opt-group .line-color {
@@ -123,4 +139,19 @@ body {
 	margin: 20px 0;
 	color: gray;
 	line-height: 1.7;
+}
+
+.alert {
+	border: 1px solid #41B0FF;
+	padding: 5px;
+	margin-bottom: 10px;
+	line-height: 1.7;
+}
+
+.alert.alert--hidden {
+	display: none;
+}
+
+.alert.alert--red {
+	border-color: red;
 }
