@@ -3,16 +3,25 @@ window.addEventListener('load', function(){
 	chrome.extension.isAllowedFileSchemeAccess(function(isAllowedAccess){
 		if (isAllowedAccess) return;
 
-		var msg = document.getElementById('need-allow-file-access'),
-			openSettingsBtn = document.getElementById('open-settings');
-		
-		openSettingsBtn.addEventListener('click', function(){
-			chrome.tabs.create({
-				url: 'chrome://extensions/?id=' + chrome.runtime.id
-			});
-		});
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+			if (tabs.length > 0)
+			{
+				url = tabs[0].url.trim().toLowerCase();
+				if (url.indexOf('file://') == 0)
+				{
+					var msg = document.getElementById('need-allow-file-access'),
+						openSettingsBtn = document.getElementById('open-settings');
+					
+					openSettingsBtn.addEventListener('click', function(){
+						chrome.tabs.create({
+							url: 'chrome://extensions/?id=' + chrome.runtime.id
+						});
+					});
 
-		msg.classList.remove('alert--hidden');
+					msg.classList.remove('alert--hidden');
+				}
+			}
+		});
 	});
 
 

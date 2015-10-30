@@ -1,22 +1,38 @@
+function executeScript(code, file)
+{
+	if (code || file)
+	{
+		chrome.tabs.executeScript(
+			null, 
+			{
+				code: code
+			},
+			function() {
+				chrome.tabs.executeScript(null, {file: file});
+			}
+		);
+	}
+}
+
 chrome.commands.onCommand.addListener(function(command) {
-	var _code = null,
-		_file = null;
+	var code = null,
+		file = null;
 
 	switch (command)
 	{
 		case 'add-vertical-line':
-			_code = 'var lineType = "v"';
-			_file = 'js/addLine.js';
+			code = 'var lineType = "v"';
+			file = 'js/addLine.js';
 			break;
 
 		case 'add-horizontal-line':
-			_code = 'var lineType = "h"';
-			_file = 'js/addLine.js';
+			code = 'var lineType = "h"';
+			file = 'js/addLine.js';
 			break;
 
 		case 'add-cross-line':
-			_code = '';
-			_file = 'js/addCrossLine.js';
+			code = '';
+			file = 'js/addCrossLine.js';
 			break;
 	}
 
@@ -25,22 +41,23 @@ chrome.commands.onCommand.addListener(function(command) {
 	chrome.extension.isAllowedFileSchemeAccess(function(isAllowedAccess){
 		if (isAllowedAccess)
 		{
-			if (_code || _file)
-			{
-				chrome.tabs.executeScript(
-					null, 
-					{
-						code: _code
-					},
-					function() {
-						chrome.tabs.executeScript(null, {file: _file});
-					}
-				);
-			}
+			executeScript(code, file);
 		}
 		else
 		{
-			alert('You should allow access to file:// URLs in the extension settings');
+			chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+				if (tabs.length > 0)
+				{
+					url = tabs[0].url.trim().toLowerCase();
+					if (url.indexOf('file://') == 0)
+					{
+						alert('You should allow access to file:// URLs in the extension settings');
+						return;
+					}
+				}
+
+				executeScript(code, file);
+			});
 		}
 	});	
 });
