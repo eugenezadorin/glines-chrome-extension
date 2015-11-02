@@ -2,15 +2,21 @@
 
 Simple tool for easy markup testing with guide lines.
 
+Now available in [Chrome webstore](https://chrome.google.com/webstore/detail/glines-chrome-extension/hplhjkmgokoamhihlfgaddljbippfeje)!
+
 ## Demo 
 
 ![Glines demo](http://i.imgur.com/8Yt99WG.gif)
 
 ## How to install
 
+Developer-way:
+
 1. Download or clone this repository
 2. Open chrome://extensions/ page and turn on "developer mode"
 3. Click on "Load Unpacked Extension" button and navigate to glines extension folder.
+
+Or just install from [Chrome webstore](https://chrome.google.com/webstore/detail/glines-chrome-extension/hplhjkmgokoamhihlfgaddljbippfeje).
 
 ## How to use
 
