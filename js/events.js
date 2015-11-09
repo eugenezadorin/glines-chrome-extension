@@ -34,6 +34,11 @@ chrome.commands.onCommand.addListener(function(command) {
 			code = '';
 			file = 'js/addCrossLine.js';
 			break;
+
+		case 'show-hide-lines':
+			code = 'glines.toggleVisibility();';
+			file = '';
+			break;
 	}
 
 

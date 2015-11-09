@@ -43,6 +43,7 @@ window.addEventListener('load', function(){
 	var vLineBtn = document.getElementById('add-vertical-line'),
 		hLineBtn = document.getElementById('add-horizontal-line'),
 		crossLineBtn = document.getElementById('add-crossline'),
+		toggleVisibilityBtn = document.getElementById('show-hide-lines'),
 		removeAllBtn = document.getElementById('remove-all-lines'),
 		lineSizeField = document.getElementById('line-size'),
 		lineColorField = document.getElementById('line-color');
@@ -117,6 +118,13 @@ window.addEventListener('load', function(){
 				chrome.tabs.executeScript(null, {file: 'js/addCrossLine.js'});
 			}
 		);
+		return false;
+	});
+
+	toggleVisibilityBtn.addEventListener('click', function(){
+		chrome.tabs.executeScript({
+			code: 'glines.toggleVisibility()'
+		});
 		return false;
 	});
 

@@ -233,6 +233,12 @@ glines = {};
 			elements_to_remove[i].remove();
 		}
 	}
+
+	gl.toggleVisibility = function() {
+		this.each(function(ind, line){
+			line.classList.toggle('glines-line-hidden');
+		});
+	}
 	
 	window.addEventListener('resize', function() {
 		var h = gl.getWindowHeight();	

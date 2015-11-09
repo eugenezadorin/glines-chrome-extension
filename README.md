@@ -34,10 +34,11 @@ Or just install from [Chrome webstore](https://chrome.google.com/webstore/detail
 
 ## Shortcuts
 
-There is three predefined shortcuts:
+There are some predefined shortcuts:
 
 1. `Alt+V` to add vertical line
 2. `Alt+H` to add horizontal line
 3. `Alt+C` to add crossline
+4. `Alt+S` to show/hide lines
 
 You can change them in the bottom of chrome://extensions/ page.
