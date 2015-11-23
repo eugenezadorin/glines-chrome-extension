@@ -2,6 +2,8 @@ glines = {};
 
 (function(gl) {
 	gl.counter = -1;
+
+	gl.visible = true;
 		
 	gl.getWindowHeight = function() {
 		return Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight);
@@ -75,6 +77,8 @@ glines = {};
 
 
 	gl.addLine = function(axis, customStyle) {
+		this.showAll();
+
 		axis = this.checkAxis(axis);
 
 		this.counter++;
@@ -172,7 +176,7 @@ glines = {};
 			return false;
 		}
 
-		document.body.appendChild( line );
+		document.body.appendChild(line);
 		line.focus();
 		return line;
 	}
@@ -234,11 +238,27 @@ glines = {};
 		}
 	}
 
-	gl.toggleVisibility = function() {
+
+	gl.showAll = function() {
+		this.visible = true;
 		this.each(function(ind, line){
-			line.classList.toggle('glines-line-hidden');
+			line.classList.remove('glines-line-hidden');
 		});
 	}
+
+	
+	gl.toggleVisibility = function() {
+		var visible = this.visible;
+		this.visible = !this.visible;
+		this.each(function(ind, line){
+			if (visible) {
+				line.classList.add('glines-line-hidden');
+			} else {
+				line.classList.remove('glines-line-hidden');
+			}
+		});
+	}
+
 	
 	window.addEventListener('resize', function() {
 		var h = gl.getWindowHeight();	

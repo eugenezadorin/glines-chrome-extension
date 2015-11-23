@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "glines chrome extension",
 	"short_name": "glines",
-	"version": "0.0.8.2",
+	"version": "0.0.8.3",
 	"description": "Simple tool for easy markup testing with photoshop-like guides",
 	"author": "Eugene Zadorin",
 	"homepage_url": "https://github.com/eugenezadorin/glines-chrome-extension",
